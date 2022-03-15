@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+import MakePicture
 from PIL import Image
 # from colorit import background, init_colorit
+
 
 
 def MakeGraphGreatAgain(V, E):
@@ -21,7 +23,7 @@ def MakeGraphGreatAgain(V, E):
     graph.add_nodes_from(V)
     graph.add_edges_from(res)
     nx.draw_circular(graph, node_color='red', node_size=1000, with_labels=True)
-    plt.savefig("Graf.png")
+    plt.savefig("Graf.jpg")
     plt.show()
     resE = []
     for i in range(0, len(E), 2):
@@ -29,7 +31,6 @@ def MakeGraphGreatAgain(V, E):
     # print(resE)
     dfs(V, resE)
     return 0
-
 
 def dfs(V, E):
     temp = dict()
@@ -84,6 +85,7 @@ def dfs(V, E):
 
     print("Все минимальные внешне устойчивые множества вершин:", final_stage)
     print("наименьшие по мощности: ", final_stage_lengths[min(final_stage_lengths.keys())])
+    MakePicture.Start()
     return 0
 
 
