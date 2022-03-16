@@ -9,7 +9,7 @@ def Start():
 
     def numsofone_in_charbytes(text):
         offset = ord(text)
-        with open("./ASC16", "rb") as ASC16:
+        with open("ASC16", "rb") as ASC16:
             location = offset*16
             ASC16.seek(location)
             retbytes = ASC16.read(16)
