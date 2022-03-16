@@ -7,6 +7,21 @@ from PIL import Image
 
 
 def MakeGraphGreatAgain(V, E):
+    """Функция создания ориентированного графа
+
+                 Parameters
+                 ----------
+                 V : str
+                   Список вершин.
+                 E : str
+                   Список ребер
+
+                 Returns
+                 -------
+                 tuple
+                      Построенный граф и картинку графа в формате jpg
+
+            """
     graph = nx.DiGraph()
     V = list(map(int, V.replace('{', '').replace('}', '').replace(',', ' ').split()))
     E = list(map(int, E.replace('{', '').replace('}', '').replace('(', '').replace(')', '').replace(',', ' ').split()))
@@ -29,10 +44,32 @@ def MakeGraphGreatAgain(V, E):
     for i in range(0, len(E), 2):
         resE.append((int(E[i]), int(E[i + 1])))
     # print(resE)
-    dfs(V, resE)
+    ses(V, resE)
     return 0
 
-def dfs(V, E):
+def ses(V, E):
+    """Функция вычисления всех наименьших внешне устойчивых множеств вершин неориентированного графа G = (V, E) пригоден и для ориентированных графов.
+          Parameters
+               ----------
+               V : list
+                 Список вершин.
+               E : list
+                 Список ребер
+
+             Example
+             -------
+                 >>> (V={1,2,3,4,5,6,7}, E={(1,2),(1,4),(1,6),(1,7),(2,4),(2,6),(3,4),(3,5),(3,6),(3,7),(4,5),(5,6),(6,7)})
+                Минимальные внешне устойчивые множества вершин:
+                {3,5}, {1,5}, {2,4}.
+                Наибольшие внешне устойчивые множества вершин:
+                {3,5}, {1,5}, {2,4}.
+
+
+             Returns
+             -------
+             tuple
+                 Все минимальные устойчивые множеста, а также наименьшие из них.
+          """
     temp = dict()
     for i in V:
         for j in E:
@@ -89,6 +126,20 @@ def dfs(V, E):
 
 
 def pogloshenie(poglotitel, res):
+    """Функция определения поглатителя
+
+               Parameters
+               ----------
+               poglotitel : str
+                   Значение которое при умножении поглощает другое значение с которым умножается.
+               res : str
+                   Результат умножения и поглошения(одного шага).
+
+               Returns
+               -------
+               tuple
+                   Выводит значение True или False
+          """
     pogl = [i for i in poglotitel]
     r = [i for i in res]
     flag = True
@@ -98,6 +149,20 @@ def pogloshenie(poglotitel, res):
     return flag
 
 def test_pogloshenie(res, poglotitel):
+    """Функция поглощения
+
+              Parameters
+              ----------
+              poglotitel : str
+                  Значение которое при умножении поглощает другое значение с которым умножается.
+              res : str
+                  Результат умножения.
+
+              Returns
+              -------
+              tuple
+                  Выводит финальный результат шага(результат поглащения)
+         """
     final_res = []
     for r in res:
         if poglotitel == r or not pogloshenie(str(poglotitel), str(r)):
@@ -106,6 +171,17 @@ def test_pogloshenie(res, poglotitel):
 
 
 def Start():
+    """Функция запуска программы
+
+              Example
+              -------
+              Вводим параметры V вершины и E ребра
+
+              Returns
+              -------
+              tuple
+                  Выводит финальный результат шага(результат поглащения)
+          """
     V = input("Введите вершины: ")
     # V = "{1,2,3,4,5,6,7}"
     E = input("Введите ребра: ")
