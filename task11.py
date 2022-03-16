@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+import MakePicture
 from PIL import Image
 # from colorit import background, init_colorit
 
@@ -21,7 +22,7 @@ def MakeGraphGreatAgain(V, E):
     graph.add_nodes_from(V)
     graph.add_edges_from(res)
     nx.draw_circular(graph, node_color='red', node_size=1000, with_labels=True)
-    plt.savefig("Graf.png")
+    plt.savefig("Graf.jpg")
     plt.show()
     resE = []
     for i in range(0, len(E), 2):
@@ -29,6 +30,7 @@ def MakeGraphGreatAgain(V, E):
     # print(resE)
     dfs(V, resE)
     return 0
+
 
 
 def dfs(V, E):
@@ -68,6 +70,7 @@ def dfs(V, E):
             final_stage_lengths[len(i)] = [i]
     print(final_stage, 'Максимальные внутренние устойчивые множества')
     print(final_stage_lengths[max(final_stage_lengths.keys())],'Наибольшие внутренне устойчивые множества')
+
     return 0
 
 
@@ -88,13 +91,12 @@ def test_pogloshenie(res, poglotitel):
             final_res.append(r)
     return list(set(final_res))
 
-print("Введите вершины: ")
-V = input()
-# V = "{1,2,3,4,5,6,7}"
-print("Введите ребра: ")
-E = input()
-# E = "(1,2) (1,3) (1,5) (1,6) (2,3) (3,4) (3,6) (4,5) (4,7) (5,6) (6,7)"
-MakeGraphGreatAgain(V, E)
+def Start():
+    V = input("Введите вершины: ")
+    # V = "{1,2,3,4,5,6,7}"
+    E = input("Введите ребра: ")
+    # E = "(1,2) (1,3) (1,5) (1,6) (2,3) (3,4) (3,6) (4,5) (4,7) (5,6) (6,7)"
+    MakeGraphGreatAgain(V, E)
 
 # (V={1,2,3,4,5,6,7}, E={(1,2),(1,4),(1,6),(1,7),(2,4),(2,6),(3,4),(3,5),(3,6),(3,7),(4,5),(5,6),(6,7)})
 # (V={1,2,3,4,5,6,7}, E={(1,2),(1,3),(1,4),(1,6),(2,3),(2,6),(3,4),(3,6),(3,7),(4,5),(4,7),(5,6),((6,7)}).
