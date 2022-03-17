@@ -18,7 +18,7 @@ def MakeGraphGreatAgain(V, E):
 
                  Returns
                  -------
-                 tuple
+                 int
                       Построенный граф и картинку графа в формате jpg
 
             """
@@ -67,7 +67,7 @@ def ses(V, E):
 
              Returns
              -------
-             tuple
+             int
                  Все минимальные устойчивые множеста, а также наименьшие из них.
           """
     temp = dict()
@@ -137,7 +137,7 @@ def pogloshenie(poglotitel, res):
 
                Returns
                -------
-               tuple
+               bool
                    Выводит значение True или False
           """
     pogl = [i for i in poglotitel]
@@ -160,7 +160,7 @@ def test_pogloshenie(res, poglotitel):
 
               Returns
               -------
-              tuple
+              list
                   Выводит финальный результат шага(результат поглащения)
          """
     final_res = []
@@ -179,8 +179,7 @@ def Start():
 
               Returns
               -------
-              tuple
-                  Выводит финальный результат шага(результат поглащения)
+              Выводит финальный результат шага(результат поглащения)
           """
     try:
         V = input("Введите вершины: ")

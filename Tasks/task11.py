@@ -6,7 +6,7 @@ import networkx as nx
 
 
 def MakeGraphGreatAgain(V, E):
-    """Функция создания неориентированного графа
+    """Функция создания неориентированного графа.
 
         Parameters
         ----------
@@ -17,8 +17,8 @@ def MakeGraphGreatAgain(V, E):
 
         Returns
         -------
-            tuple
-            Построенный граф и картинку графа в формате jpg
+            int
+            Построенный граф и картинку графа в формате jpg.
 
      """
     graph = nx.Graph()
@@ -69,7 +69,7 @@ def lis(V, E):
 
          Returns
          -------
-         tuple
+         int
              Все максимальные устойчивые множеста, а также наибольшие из них.
       """
     res = E[0]
@@ -124,7 +124,7 @@ def pogloshenie(poglotitel, res):
 
             Returns
             -------
-            tuple
+            bool
                 Выводит значение True или False
        """
     pogl = [i for i in poglotitel]
@@ -137,10 +137,10 @@ def pogloshenie(poglotitel, res):
 
 
 def test_pogloshenie(res, poglotitel):
-    """Функция поглощения
+    """Функция поглощения.
 
               Parameters
-              ----------
+              -------
               poglotitel : str
                   Значение которое при умножении поглощает другое значение с которым умножается.
               res : str
@@ -148,7 +148,7 @@ def test_pogloshenie(res, poglotitel):
 
               Returns
               -------
-              tuple
+              list
                   Выводит финальный результат шага(результат поглащения)
          """
     final_res = []
@@ -158,16 +158,12 @@ def test_pogloshenie(res, poglotitel):
     return list(set(final_res))
 
 def Start():
-    """Функция запуска программы
+    """Функция запуска программы.
+        Выводит финальный результат шага(результат поглащения).
 
             Example
             -------
-            Вводим параметры V вершины и E ребра
-
-            Returns
-            -------
-            tuple
-                Выводит финальный результат шага(результат поглащения)
+            Вводим параметры V вершины и E ребра.
         """
     try:
         V = input("Введите вершины: ")
