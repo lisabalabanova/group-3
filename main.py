@@ -14,20 +14,26 @@ def main():
         NumberTask = input("Выберите номер задачи: ")
         if int(NumberTask) == 1:
             task11.Start()
+            makePicture()
         elif int(NumberTask) == 2:
             task13.Start()
+            makePicture()
         elif int(NumberTask) == 3:
             Task14.Start()
+            makePicture()
         else:
             print("Выберите задание!")
-        print("Вывести вкартинку в консоль? 1: Да, 2:Нет")
-        MakeImg = input()
-        if int(MakeImg) == 1:
-            MakePicture.Start()
-        else:
-            print("Ну ладно =(")
         flag = input('Хотите продолжить? (Да или нет) ')
+    return 0
 
+def makePicture():
+    print("Вывести вкартинку в консоль? 1: Да, 2:Нет")
+    MakeImg = input()
+    if int(MakeImg) == 1:
+        MakePicture.Start()
+    else:
+        print("Ну ладно =(")
     return 0
 
 main()
+
